@@ -6,8 +6,8 @@ function Header() {
   return (
     <div className="w-full flex items-center justify-between p-6 border-b-2">
       <div className="flex items-center gap-2">
-        <TextCursorInput className="w-6 h-6 text-blue-600" />
-        <h1 className="text-lg font-semibold">AltForms</h1>
+        <TextCursorInput className="w-8 h-8 text-blue-600" />
+        <h1 className="text-2xl font-bold">AltForms</h1>
       </div>
       <Button className="cursor-pointer">Publish</Button>
     </div>

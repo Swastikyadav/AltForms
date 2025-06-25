@@ -1,6 +1,7 @@
 import React from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import PreviewCard from "@/components/common/previewCard";
 import { formType } from "./builder";
 import { Trash2Icon } from "lucide-react";
 import { fieldBlocksDataType } from "@/lib/data";
@@ -36,9 +37,8 @@ function FormPreview({
   }
 
   return (
-    <main className="border border-l-2 border-r-2 w-full px-12 lg:px-24 py-6 bg-slate-50">
-      <h2 className="text-xl font-semibold mb-4">Form Name</h2>
-      <div className="bg-white min-h-screen border-2 rounded-lg p-6">
+    <PreviewCard>
+      <>
         {form.fields.map((field) => {
           return (
             <div
@@ -68,8 +68,8 @@ function FormPreview({
         })}
 
         <Button>Submit</Button>
-      </div>
-    </main>
+      </>
+    </PreviewCard>
   );
 }
 

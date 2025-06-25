@@ -9,17 +9,19 @@ import FieldSettings from "./fieldSettings";
 import FormPreview from "./formPreview";
 
 export interface formType {
+  id: number;
   name: string;
   template: string;
   fields: fieldBlocksDataType[];
 }
 
-function FormBuilder() {
-  const [form, setForm] = useState<formType>({
-    name: "",
-    template: "",
-    fields: [],
-  });
+function FormBuilder({
+  form,
+  setForm,
+}: {
+  form: formType;
+  setForm: React.Dispatch<React.SetStateAction<formType>>;
+}) {
   const [editingField, setEditingField] = useState("");
 
   return (

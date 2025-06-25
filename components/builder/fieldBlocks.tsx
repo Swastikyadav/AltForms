@@ -1,8 +1,10 @@
 import React from "react";
 
+import * as Icons from "lucide-react";
 import { fieldBlocksData } from "@/lib/data";
-import { formType } from "./builder";
 import { randomSixDigitNumber } from "@/lib/utils";
+import { formType } from "./builder";
+import RenderIcon from "./renderIcon";
 
 function FieldBlocks({
   form,
@@ -31,7 +33,7 @@ function FieldBlocks({
               }
             >
               <div className="flex flex-col gap-2 items-center justify-center">
-                {field.icon}
+                <RenderIcon name={field.icon as keyof typeof Icons} />
                 <small className="text-xs">{field.name}</small>
               </div>
             </div>

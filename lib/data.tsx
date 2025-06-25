@@ -1,11 +1,3 @@
-import {
-  HashIcon,
-  LetterTextIcon,
-  LinkIcon,
-  MailIcon,
-  PhoneIcon,
-} from "lucide-react";
-
 type inputType = "text" | "tel" | "number" | "email" | "url";
 
 export interface fieldBlocksDataType {
@@ -14,7 +6,8 @@ export interface fieldBlocksDataType {
   type: inputType;
   name: string;
   placeholder: string;
-  icon?: React.ReactElement;
+  // icon?: React.ReactElement;
+  icon?: string;
 }
 
 export const fieldBlocksData: fieldBlocksDataType[] = [
@@ -24,7 +17,7 @@ export const fieldBlocksData: fieldBlocksDataType[] = [
     type: "text",
     name: "Name",
     placeholder: "Enter your full name",
-    icon: <LetterTextIcon className="w-6 h-6" />,
+    icon: "LetterTextIcon",
   },
   {
     id: "002",
@@ -32,7 +25,7 @@ export const fieldBlocksData: fieldBlocksDataType[] = [
     type: "tel",
     name: "Phone",
     placeholder: "Enter you phone number",
-    icon: <PhoneIcon className="w-6 h-6" />,
+    icon: "PhoneIcon",
   },
   {
     id: "003",
@@ -40,7 +33,7 @@ export const fieldBlocksData: fieldBlocksDataType[] = [
     type: "number",
     name: "Number",
     placeholder: "Enter a number",
-    icon: <HashIcon className="w-6 h-6" />,
+    icon: "HashIcon",
   },
   {
     id: "004",
@@ -48,7 +41,7 @@ export const fieldBlocksData: fieldBlocksDataType[] = [
     type: "email",
     name: "Email",
     placeholder: "Enter your email address",
-    icon: <MailIcon className="w-6 h-6" />,
+    icon: "MailIcon",
   },
   {
     id: "005",
@@ -56,6 +49,6 @@ export const fieldBlocksData: fieldBlocksDataType[] = [
     type: "url",
     name: "URL",
     placeholder: "https://",
-    icon: <LinkIcon className="w-6 h-6" />,
+    icon: "LinkIcon",
   },
 ];

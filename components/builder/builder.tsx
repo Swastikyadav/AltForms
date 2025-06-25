@@ -20,12 +20,22 @@ function FormBuilder() {
     template: "",
     fields: [],
   });
+  const [editingField, setEditingField] = useState("");
 
   return (
     <section className="w-full min-h-screen flex justify-between">
       <FieldBlocks form={form} setForm={setForm} />
-      <FormPreview form={form} setForm={setForm} />
-      <FieldSettings />
+      <FormPreview
+        form={form}
+        setForm={setForm}
+        editingField={editingField}
+        setEditingField={setEditingField}
+      />
+      <FieldSettings
+        form={form}
+        setForm={setForm}
+        editingField={editingField}
+      />
     </section>
   );
 }

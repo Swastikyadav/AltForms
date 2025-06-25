@@ -4,13 +4,18 @@ import { Button } from "@/components/ui/button";
 import { formType } from "./builder";
 import { Trash2Icon } from "lucide-react";
 import { fieldBlocksDataType } from "@/lib/data";
+import { cn } from "@/lib/utils";
 
 function FormPreview({
   form,
   setForm,
+  editingField,
+  setEditingField,
 }: {
   form: formType;
   setForm: React.Dispatch<React.SetStateAction<formType>>;
+  editingField: string;
+  setEditingField: React.Dispatch<React.SetStateAction<string>>;
 }) {
   const handleRemoveField = (field: fieldBlocksDataType) => {
     const updatedFields = form.fields.filter((item) => item.id !== field.id);
@@ -37,17 +42,20 @@ function FormPreview({
           return (
             <div
               key={field.id}
-              className="relative my-4 flex flex-col gap-2 p-2 rounded hover:bg-slate-100"
+              className={cn(
+                editingField === field.id && "bg-slate-100",
+                "relative my-4 flex flex-col gap-2 p-2 rounded hover:bg-slate-100"
+              )}
             >
               <div
                 className="absolute top-0 left-0 w-full h-full z-10 cursor-pointer"
-                onClick={() => console.log(field.id)}
+                onClick={() => setEditingField(field.id)}
               ></div>
               <Trash2Icon
                 className="absolute right-2 w-5 h-5 z-50 cursor-pointer hover:text-red-500"
                 onClick={() => handleRemoveField(field)}
               />
-              <label htmlFor={field.id}>{field.name}</label>
+              <label htmlFor={field.id}>{field.name || "|"}</label>
               <Input
                 id={field.id}
                 name={field.name}

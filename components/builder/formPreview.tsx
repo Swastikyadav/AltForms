@@ -18,6 +18,7 @@ function FormPreview({
   setEditingField: React.Dispatch<React.SetStateAction<string>>;
 }) {
   const handleRemoveField = (field: fieldBlocksDataType) => {
+    if (field.id === editingField) setEditingField("");
     const updatedFields = form.fields.filter((item) => item.id !== field.id);
 
     setForm({ ...form, fields: updatedFields });

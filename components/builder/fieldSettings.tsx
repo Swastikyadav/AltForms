@@ -31,6 +31,8 @@ function FieldSettings({
     setForm({ ...form, fields: tempFormFields });
   };
 
+  if (!editingField) return "";
+
   return (
     <aside className="w-xl bg-slate-50 p-6">
       <h2 className="text-xl font-semibold mb-4">Field Settings</h2>

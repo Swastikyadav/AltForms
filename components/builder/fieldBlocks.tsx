@@ -2,6 +2,7 @@ import React from "react";
 
 import { fieldBlocksData } from "@/lib/data";
 import { formType } from "./builder";
+import { randomSixDigitNumber } from "@/lib/utils";
 
 function FieldBlocks({
   form,
@@ -20,7 +21,13 @@ function FieldBlocks({
               key={field.id}
               className="bg-white rounded w-18 h-18 flex border items-center justify-center cursor-pointer hover:shadow-md"
               onClick={() =>
-                setForm({ ...form, fields: [...form.fields, field] })
+                setForm({
+                  ...form,
+                  fields: [
+                    ...form.fields,
+                    { ...field, id: `${randomSixDigitNumber()}` },
+                  ],
+                })
               }
             >
               <div className="flex flex-col gap-2 items-center justify-center">

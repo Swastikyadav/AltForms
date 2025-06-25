@@ -8,16 +8,16 @@ import {
 
 type inputType = "text" | "tel" | "number" | "email" | "url";
 
-interface fieldBlocksDataTypes {
+export interface fieldBlocksDataType {
   id: string;
   tag: "input";
   type: inputType;
   name: string;
   placeholder: string;
-  icon: React.ReactElement;
+  icon?: React.ReactElement;
 }
 
-export const fieldBlocksData: fieldBlocksDataTypes[] = [
+export const fieldBlocksData: fieldBlocksDataType[] = [
   {
     id: "001",
     tag: "input",

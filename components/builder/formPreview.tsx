@@ -1,11 +1,11 @@
 import React from "react";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import PreviewCard from "@/components/common/previewCard";
 import { formType } from "./builder";
 import { Trash2Icon } from "lucide-react";
 import { fieldBlocksDataType } from "@/lib/data";
 import { cn } from "@/lib/utils";
+import Field from "./field";
 
 function FormPreview({
   form,
@@ -57,12 +57,7 @@ function FormPreview({
                 onClick={() => handleRemoveField(field)}
               />
               <label htmlFor={field.id}>{field.name || "|"}</label>
-              <Input
-                id={field.id}
-                name={field.name}
-                placeholder={field.placeholder}
-                type={field.type}
-              />
+              <Field field={field} />
             </div>
           );
         })}

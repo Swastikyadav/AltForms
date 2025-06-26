@@ -3,9 +3,9 @@
 import React from "react";
 
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { fieldBlocksDataType } from "@/lib/data";
 import PreviewCard from "@/components/common/previewCard";
+import Field from "@/components/builder/field";
 
 function FormPage() {
   const stored = localStorage.getItem("form");
@@ -22,12 +22,7 @@ function FormPage() {
                 className="relative my-4 flex flex-col gap-2 rounded"
               >
                 <label htmlFor={field.id}>{field.name || "|"}</label>
-                <Input
-                  id={field.id}
-                  name={field.name}
-                  placeholder={field.placeholder}
-                  type={field.type}
-                />
+                <Field field={field} />
               </div>
             );
           })}

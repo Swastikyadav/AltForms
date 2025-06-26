@@ -1,6 +1,7 @@
 import React from "react";
 import { Input } from "@/components/ui/input";
 import { formType } from "./builder";
+import SelectSettings from "./selectSettings";
 
 function FieldSettings({
   form,
@@ -56,6 +57,12 @@ function FieldSettings({
           }}
         />
       </div>
+      <SelectSettings
+        editingField={editingField}
+        editingFieldData={editingFieldData}
+        form={form}
+        setForm={setForm}
+      />
     </aside>
   );
 }

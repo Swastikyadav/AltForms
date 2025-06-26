@@ -1,13 +1,14 @@
-type inputType = "text" | "tel" | "number" | "email" | "url";
+type inputType = "text" | "tel" | "number" | "email" | "url" | "dropdown";
 
 export interface fieldBlocksDataType {
   id: string;
-  tag: "input";
+  tag: "input" | "select";
   type: inputType;
   name: string;
   placeholder: string;
   // icon?: React.ReactElement;
   icon?: string;
+  options?: { id: string; value: string }[];
 }
 
 export const fieldBlocksData: fieldBlocksDataType[] = [
@@ -50,5 +51,17 @@ export const fieldBlocksData: fieldBlocksDataType[] = [
     name: "URL",
     placeholder: "https://",
     icon: "LinkIcon",
+  },
+  {
+    id: "006",
+    tag: "select",
+    type: "dropdown",
+    name: "Select",
+    placeholder: "Select from dropdown",
+    icon: "ChevronDownIcon",
+    options: [
+      { id: "option-0", value: "option 01" },
+      { id: "option-1", value: "option 02" },
+    ],
   },
 ];

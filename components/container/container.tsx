@@ -5,14 +5,12 @@ import Header from "@/components/header/header";
 import FormBuilder, { formType } from "@/components/builder/builder";
 import { toast } from "sonner";
 import { CheckCircleIcon } from "lucide-react";
+import { initialFormState } from "@/lib/data";
 
 function Container() {
-  const [form, setForm] = useState<formType>({
-    id: 3261,
-    name: "",
-    template: "",
-    fields: [],
-  });
+  const storedForm = localStorage.getItem("form");
+  const formState = storedForm ? JSON.parse(storedForm) : initialFormState;
+  const [form, setForm] = useState<formType>(formState);
   const [isSaved, setIsSaved] = useState(false);
 
   return (

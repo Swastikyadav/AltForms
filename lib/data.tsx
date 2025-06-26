@@ -65,3 +65,10 @@ export const fieldBlocksData: fieldBlocksDataType[] = [
     ],
   },
 ];
+
+export const initialFormState = {
+  id: 3261,
+  name: "",
+  template: "",
+  fields: [],
+};

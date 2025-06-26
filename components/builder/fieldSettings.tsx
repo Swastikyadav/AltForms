@@ -57,12 +57,14 @@ function FieldSettings({
           }}
         />
       </div>
-      <SelectSettings
-        editingField={editingField}
-        editingFieldData={editingFieldData}
-        form={form}
-        setForm={setForm}
-      />
+      {editingFieldData?.tag === "select" && (
+        <SelectSettings
+          editingField={editingField}
+          editingFieldData={editingFieldData}
+          form={form}
+          setForm={setForm}
+        />
+      )}
     </aside>
   );
 }

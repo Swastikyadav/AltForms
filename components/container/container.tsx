@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "@/components/header/header";
 import FormBuilder, { formType } from "@/components/builder/builder";
 import { toast } from "sonner";
@@ -8,10 +8,15 @@ import { CheckCircleIcon } from "lucide-react";
 import { initialFormState } from "@/lib/data";
 
 function Container() {
-  const storedForm = localStorage.getItem("form");
-  const formState = storedForm ? JSON.parse(storedForm) : initialFormState;
-  const [form, setForm] = useState<formType>(formState);
+  const [form, setForm] = useState<formType>(initialFormState);
   const [isSaved, setIsSaved] = useState(false);
+
+  useEffect(() => {
+    const storedForm = localStorage.getItem("form");
+    const formState = storedForm ? JSON.parse(storedForm) : initialFormState;
+
+    setForm(formState);
+  }, []);
 
   return (
     <div>

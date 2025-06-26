@@ -1,15 +1,23 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { fieldBlocksDataType } from "@/lib/data";
 import PreviewCard from "@/components/common/previewCard";
 import Field from "@/components/builder/field";
 
+const initialForm = { fields: [] };
+
 function FormPage() {
-  const stored = localStorage.getItem("form");
-  const form = stored ? JSON.parse(stored) : null;
+  const [form, setForm] = useState(initialForm);
+
+  useEffect(() => {
+    const stored = localStorage.getItem("form");
+    const form = stored ? JSON.parse(stored) : initialForm;
+
+    setForm(form);
+  }, []);
 
   return (
     <div className="w-4xl mx-auto">
